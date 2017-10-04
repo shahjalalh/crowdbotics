@@ -69,4 +69,6 @@ $ python manage.py shell
 
 >>> Cat.objects.filter(owner=user2)
 
+>>> User.objects.annotate(has_dog=Count('dog'), has_cat=Count('cat')).filter(has_dog__gt=0, has_cat__gt=0).count()
+
 ```
